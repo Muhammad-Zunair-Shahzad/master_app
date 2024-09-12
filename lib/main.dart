@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:master_app/home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,18 +10,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int days = 30;
-
-    return MaterialApp(
-      home: Material(
-        child: Center(
-          child: Center(
-            child: Container(
-              child: Text('Welcome to $days days of flutter'),
-            ),
-          ),
-        ),
-      ),
-    );
+    return const MaterialApp( // Make a Black Screen with an (ugly black red Text) we write...
+        home: HomePage()
+      );
   }
 }

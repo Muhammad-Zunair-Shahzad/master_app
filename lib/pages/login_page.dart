@@ -5,7 +5,7 @@ class LogInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Material( // To avoid yellow underlined Red Text on ugly Canvas
+    return const Material( 
       child: Center(
         child: Text('Login Page', style: TextStyle(
           color: Colors.blue,
@@ -19,9 +19,3 @@ class LogInPage extends StatelessWidget {
   }
 }
 
-/*
-textScaleFactor
-    By default it is 1.0
-    Deprecated. Will be removed in a future version of Flutter. Use [textScaler] instead.
-
--->  */

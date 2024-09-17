@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:master_app/pages/home_page.dart';
 import 'package:master_app/pages/login_page.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         primarySwatch: Colors.blue,
         useMaterial3: false,
+        fontFamily: GoogleFonts.lato().fontFamily, 
       ),
       initialRoute: '/',
       routes: {
@@ -30,3 +32,10 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+/*
+--> primaryTextTheme: GoogleFonts.latoTextTheme()
+    He said that this will aplies to only primaryText and I even not understand the single word of it.
+
+
+ */

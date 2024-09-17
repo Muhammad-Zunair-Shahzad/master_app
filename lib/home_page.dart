@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
 
 /*
 
--r Material() \-c // Make all the screen White --> Scaffold()
+-r Material() \-c // Make all the screen White --> instead of this use Scaffold() widget, in which we further add some other widgets
 -i Scaffold has 3 parts : 1) Header (appBar), Body, and fotter
 
 r: remove

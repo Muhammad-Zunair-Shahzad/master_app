@@ -36,6 +36,8 @@ class MyApp extends StatelessWidget {
 } //
 
 /*
+--> (Button Press:) Navigator.pushNamed(context, MyRoutes.homeRoute); --> (Route Lookup:)MyRoutes.homeRoute -> HomePage 
+--> (Push Route:)Display HomePage ...
 
 --> fontFamily: GoogleFonts.lato().fontFamily;
          

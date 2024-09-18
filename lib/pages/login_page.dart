@@ -63,7 +63,7 @@ class _LogInPageState extends State<LogInPage> {
                     onTap: () async {
                       changeButton = true;
                       setState(() {});
-                      await Future.delayed(const Duration(seconds: 1));
+                      await Future.delayed(const Duration(seconds: 1)); // move to next page after 1 sec in future... why? because to give some time to change the (width and borderRadius)
                       if (!mounted) {
                         return;
                       } 

@@ -1,9 +1,10 @@
-// Day4: Adding Images, Googe Fonts, Elevated Button, Log in Page
+// Day5: Publish to GitHub, singleChildScrollView, Navigator
 
 import 'package:flutter/material.dart';
 import 'package:master_app/pages/home_page.dart';
 import 'package:master_app/pages/login_page.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:master_app/utils/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,15 +28,26 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const LogInPage(),
-        '/home': (context) => const HomePage(),
+        MyRoutes.homeRoute: (context) => const HomePage(),
+        MyRoutes.loginRoute: (context) => const LogInPage(),
       },
     );
   }
 }
 
 /*
---> primaryTextTheme: GoogleFonts.latoTextTheme()
-    He said that this will aplies to only primaryText and I even not understand the single word of it.
 
+--> fontFamily: GoogleFonts.lato().fontFamily;
+         
+          This fontFamily is only useable when screen is light... ✅
 
+--> type of routes: {}
+
+          Map<String, Widget Function(BuildContext)> routes...
+          routes: { 
+                    "/stringValue": (context) => const ClassConstructor()
+          }
+  
+
+--> Both MyRoutes.homeRoute & MyRoutes.loginRoute 🤗
  */

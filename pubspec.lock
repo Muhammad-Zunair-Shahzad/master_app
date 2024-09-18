@@ -280,6 +280,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  swipe_screen:
+    dependency: "direct main"
+    description:
+      name: swipe_screen
+      sha256: "0b76d140b80cc4f017650585d3a5425babd6fb4f99caa704343a4ffc2a364491"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
   term_glyph:
     dependency: transitive
     description:

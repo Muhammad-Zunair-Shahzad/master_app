@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:master_app/utils/routes.dart';
 
-class LogInPage extends StatelessWidget {
+class LogInPage extends StatefulWidget {
   const LogInPage({super.key});
+
+  @override
+  State<LogInPage> createState() => _LogInPageState();
+}
+
+class _LogInPageState extends State<LogInPage> {
+  String name = "";
+  bool changeButton = false;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -13,14 +21,13 @@ class LogInPage extends StatelessWidget {
             Image.asset(
               'assets/images/login_image.png',
               fit: BoxFit.cover,
-              // height: 1000
             ),
             const SizedBox(
               height: 20,
             ),
-            const Text(
-              'Welcome',
-              style: TextStyle(
+            Text(
+              "Welcome $name ",
+              style: const TextStyle(
                 fontSize: 26,
                 fontWeight: FontWeight.bold,
               ),
@@ -37,6 +44,10 @@ class LogInPage extends StatelessWidget {
                       hintText: 'Enter Username',
                       labelText: 'Username',
                     ),
+                    onChanged: (value) {// Welcome Zun.... , value is of type String
+                      name = value;
+                      setState(() {});
+                    },
                   ),
                   TextFormField(
                     obscureText: true,
@@ -48,15 +59,38 @@ class LogInPage extends StatelessWidget {
                   const SizedBox(
                     height: 40,
                   ),
-                  ElevatedButton(
-                    onPressed: () {
+                  InkWell(
+                    onTap: () async {
+                      changeButton = true;
+                      setState(() {});
+                      await Future.delayed(const Duration(seconds: 1));
+                      if (!mounted) {
+                        return;
+                      } 
                       Navigator.pushNamed(context, MyRoutes.homeRoute);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 107, 122, 212),
-                      minimumSize: const Size(150, 40), // (width, height)
+                    }, // onTap
+                    child: AnimatedContainer(                    
+                      duration: const Duration(seconds: 1),     
+                      width: changeButton ? 50 : 150,
+                      height: 50,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 107, 122, 212),
+                        borderRadius: BorderRadius.circular(changeButton ? 50 : 8),
+                      ),
+                      child: changeButton
+                          ? const Icon(
+                              Icons.done,
+                              color: Colors.white,
+                            )
+                          : const Text(
+                              'Login',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18),
+                            ),
                     ),
-                    child: const Text("Login"),
                   ),
                 ],
               ),
@@ -69,45 +103,61 @@ class LogInPage extends StatelessWidget {
 }
 
 /*
---> SingleChildScrollView
+--> Wrapping a container inside GestureDetuctor ✅🤔 || InkWell ✅🤗
 
-        If the mobile screen is very small then may be some widgets are cut off... 😵
-        This is called overflow error so to say...
-        Solution: wrap the outermost column with SingleChildScrollView ✅
-                     
---> Navigator.push(context, route)
-
-        Like loginRoute & homeRoute in routes.dart, Push is also Static, if you go to its documentation... ✅
-        Means that we are not creating a seperate object... ✅
-        eg) if by default it is not static then whenever you push you have to create a new oject 😵 ...
-            like: Navigator().push(context, route)
+--> onChanged: (value) { 
+        name = value;  
+        setState(() {
+      });
+    },
+    You can also write (name = value) inside setState curley brackets 🤗
 
 
---> Working of Elevated Button
-          
-           Button Press: When the button in LogInPage is pressed, it triggers Navigator.pushNamed(context, MyRoutes.homeRoute);
-           Route Lookup: Flutter looks up MyRoutes.homeRoute in the routes table and finds the corresponding widget (HomePage).
-           Push Route: Flutter pushes the HomePage widget onto the navigation stack, displaying it on the screen.
-           Basically we use static string routes name in routes.dart because of 2 purpose:-
-           -> In main in route table String is required
-           -> In loginpage Navigator.pushNamed is used which alos requires string
-
-
---> Navigator.push
-
-       In this file, Navigator.pushNamed is used, this is also an method, but still I cannot use this...
-       onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => HomePage(), // Replace with your home page widget
-                        ),
-                      );
+--> We use AnimatedContainer wrap with InkWell instead of ElevatedButton... 🤗
+     ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, MyRoutes.homeRoute);
                     },
-       Here note that HomePage() is creating an object ✅...
-       As a result, routes.dart file use useless... 😥 
-       Why ? Because MyRoutes contains static data members of type string ✅
-     
- */
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 107, 122, 212),
+                      minimumSize: const Size(150, 40),
+                    ),
+                    child: const Text("Login"),
+       ),
 
-// ✅ ❌ 😵 🤗 😥 
+      Animatted Container can only use 1 thing at a time either shape (⭕R) borderRadius
+
+      shape: changeButton ? BoxShape.circle: BoxShape.rectangle, (⭕R)
+      borderRadius: BorderRadius.circular(changeButton? 50 : 8),
+
+--> What is async ?
+    
+      In easy words, async is a way to tell Dart, "Hey, this part of the code might take some time, 
+      but don't stop everything else—keep doing other tasks while you wait."
+
+      When you mark a function as async, it means that the function can pause when it reaches something like 
+      await (which waits for a result) but allows the rest of your app to keep running smoothly.
+
+      Think of it like ordering food at a restaurant. You place your order (async), the chef starts cooking, 
+      but in the meantime, you can do other things (like chat with friends) until the food is ready (await).
+
+--> Why we need mounted ?
+     
+      Even if everything seems to be running smoothly, an asynchronous operation (like await) can cause a delay, 
+      and during that time, the widget using BuildContext might get removed from the screen or replaced.
+
+      Imagine you're waiting in line for food (await), but during that time, the restaurant (widget) closes or 
+      changes ownership (the widget gets disposed or rebuilt). Now, you can't use your order ticket (BuildContext) 
+      at the new place—it’s no longer valid because the restaurant that gave you that ticket doesn’t exist anymore.
+
+--> What is Mounted ?
+
+      Mounted is a property that indicates whether the widget is still part of the widget tree.
+
+      The if (!mounted) return; line ensures that context is only used if the widget is still mounted 
+      (i.e., it hasn't been removed or disposed of).
+       
+
+*/
+
+// ✅ ❌ 😵 🤗 😥 🤔 (⭕R) 

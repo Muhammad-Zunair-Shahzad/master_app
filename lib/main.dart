@@ -1,4 +1,4 @@
-// Day5: Publish to GitHub, singleChildScrollView, Navigator
+// Day6: Stateful | Animated Container | Future Delay
 
 import 'package:flutter/material.dart';
 import 'package:master_app/pages/home_page.dart';
@@ -33,21 +33,4 @@ class MyApp extends StatelessWidget {
       },
     );
   }
-} //
-
-/*
-
---> fontFamily: GoogleFonts.lato().fontFamily;
-         
-          This fontFamily is only useable when screen is light... ✅
-
---> type of routes: {}
-
-          Map<String, Widget Function(BuildContext)> routes...
-          routes: { 
-                    "/stringValue": (context) => const ClassConstructor()
-          }
-  
-
---> Both MyRoutes.homeRoute & MyRoutes.loginRoute 🤗
- */
+} 

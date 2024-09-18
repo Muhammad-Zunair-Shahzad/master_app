@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         brightness: Brightness.light,
         primarySwatch: Colors.blue,
         useMaterial3: false,
-        fontFamily: GoogleFonts.lato().fontFamily, 
+        fontFamily: GoogleFonts.lato().fontFamily,
       ),
       initialRoute: '/',
       routes: {
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
       },
     );
   }
-}
+} //
 
 /*
 

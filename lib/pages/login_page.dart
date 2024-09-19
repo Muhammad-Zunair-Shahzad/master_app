@@ -23,7 +23,7 @@ class _LogInPageState extends State<LogInPage> {
 // that is why I assign like key : _formkey = GlobalKey<FormState>();
   
   moveToHome(BuildContext context) async { // By default BuiltContext is written inside ()
-    if (_formkey.currentState!.validate()) { 
+    if (_formkey.currentState!.validate()) { // If key current state remain valid then if condition works 
       changeButton = true;
       setState(() {});
       await Future.delayed(const Duration(seconds: 1));

@@ -1,4 +1,4 @@
-// Day6: Stateful | Animated Container | Future Delay
+// Day7: Form | TextField Validation | Ink 
 
 import 'package:flutter/material.dart';
 import 'package:master_app/pages/home_page.dart';

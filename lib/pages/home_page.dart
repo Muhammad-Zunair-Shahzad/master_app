@@ -25,6 +25,3 @@ class HomePage extends StatelessWidget {
 
 // -r Material() \-c // Make all the screen White --> Scaffold()
 // -i Scaffold has 3 parts : 1) Header (appBar), Body, and footer
-
-
-

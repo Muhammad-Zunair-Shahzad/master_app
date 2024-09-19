@@ -1,4 +1,4 @@
-// Day7: Form | TextField Validation | Ink 
+// Day8: Material Drawer | DevTool | ListView | NetworkImage 
 
 import 'package:flutter/material.dart';
 import 'package:master_app/pages/home_page.dart';

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:master_app/widgets/drawer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -12,16 +13,7 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Text('Welcome to $days days of flutter'),
       ),
-      drawer: const Drawer(),
+      drawer: const MyDrawer(),
     );
   }
 }
-
-
-
-// r: remove
-// i: info 
-// c: comment 
-
-// -r Material() \-c // Make all the screen White --> Scaffold()
-// -i Scaffold has 3 parts : 1) Header (appBar), Body, and footer

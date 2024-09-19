@@ -15,21 +15,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
       darkTheme: ThemeData(
         brightness: Brightness.dark,
       ),
       theme: ThemeData(
         brightness: Brightness.light,
-        primarySwatch: Colors.blue,
+        primarySwatch:Colors.deepPurple,
         useMaterial3: false,
         fontFamily: GoogleFonts.lato().fontFamily,
       ),
-      initialRoute: '/',
+      initialRoute: '/home', // Directy go to Home page fro working instead of writing password and user name again and again 
       routes: {
         '/': (context) => const LogInPage(),
-        MyRoutes.homeRoute: (context) => const HomePage(),
-        MyRoutes.loginRoute: (context) => const LogInPage(),
+        MyRoutes.homeRoute: (context) => const HomePage(), // MyRoutes.homeRoute is '/home'
+        MyRoutes.loginRoute: (context) => const LogInPage(), // MyRoutes.loginRoute is '/login'
       },
     );
   }

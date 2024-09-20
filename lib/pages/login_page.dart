@@ -17,7 +17,7 @@ class _LogInPageState extends State<LogInPage> {
   bool changeButton = false;
   final _formkey = GlobalKey<FormState>(); 
 
-// Form is a widget
+// Form is a widget, basically use when we want to reate some 'enter username and password etc', Form provids some important features
 // GlobalKey allows you to use the form's state at any time***
 // FormState tells i keep record of each TextFormField uniquely, but for this I need a key
 // that is why I assign like key : _formkey = GlobalKey<FormState>();
@@ -104,8 +104,7 @@ class _LogInPageState extends State<LogInPage> {
                     // Creating an Animated Button
                     Material(
                       color: Colors.deepPurple,
-                      borderRadius:
-                          BorderRadius.circular(changeButton ? 50 : 8),
+                      borderRadius: BorderRadius.circular(changeButton ? 50 : 8),
                       child: InkWell(
                         onTap: () => moveToHome(context), // By default context is written inside ()
                         child: AnimatedContainer(

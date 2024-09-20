@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -8,7 +9,7 @@ class MyDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: Colors.deepPurple, // Full fill the Drawer
+        color: Colors.deepPurple, 
         child: ListView(
           children: [
             DrawerHeader(
@@ -17,12 +18,25 @@ class MyDrawer extends StatelessWidget {
                   accountName:const Text('Muhammad Zunair Shahzad'),
                   accountEmail: const Text('zunairshahzad2004@gmail.com'),
                   currentAccountPicture: CircleAvatar(
-                    backgroundImage: NetworkImage(imageURL), // Image.asset() & Image.network() are widgets not ImageProviders like NetworkImage
+                    backgroundImage: NetworkImage(imageURL),
                   ),
-                 // decoration: const BoxDecoration(color: Color.fromARGB(255, 128, 83, 206)), // Uncomment for difference
+                decoration: const BoxDecoration(color: Color.fromARGB(255, 113, 62, 202)),
+                margin: EdgeInsets.zero,
               ),
             ),
-            // Divider....
+            // Add devider to see the problem... 
+            const ListTile(
+              leading: Icon(CupertinoIcons.home, color: Colors.white,),
+              title: Text("Home", textScaler: TextScaler.linear(1.2),style: TextStyle(color: Colors.white),),
+            ),
+             const ListTile(
+              leading: Icon(CupertinoIcons.profile_circled, color: Colors.white,),
+              title: Text("Profile", textScaler: TextScaler.linear(1.2),style: TextStyle(color: Colors.white),),
+            ),
+             const ListTile(
+              leading: Icon(CupertinoIcons.mail, color: Colors.white,),
+              title: Text("Email me", textScaler: TextScaler.linear(1.2),style: TextStyle(color: Colors.white),),
+            ),
           ],
         ),
       ),

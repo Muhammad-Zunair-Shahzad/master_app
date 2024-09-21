@@ -1,4 +1,4 @@
-// Day10 : BuilContext | 3 tress & Constraint explained
+// * Day11 : ListView Builder | List Generate | Cards & Asserts
 
 import 'package:flutter/material.dart';
 import 'package:master_app/pages/home_page.dart';
@@ -27,4 +27,4 @@ class MyApp extends StatelessWidget {
       },
     );
   }
-} 
+}

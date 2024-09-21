@@ -6,7 +6,7 @@ class Item {
       required this.price,
       required this.color,
       required this.image});
-  final String id;
+  final int id;
   final String name;
   final String desc;
   final num price;
@@ -17,7 +17,7 @@ class Item {
 class CatalogModel {
   static final List<Item> items = [ // items stores the instances list, of the Item class
     Item(
-        id: "Codepur001",
+        id: 1,
         name: "iPhone 12 Pro",
         desc: "Apple iPhone 12th generation",
         price: 999,

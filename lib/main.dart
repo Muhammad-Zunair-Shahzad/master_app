@@ -1,4 +1,4 @@
-// * Day11 : ListView Builder | List Generate | Cards & Asserts
+// * Day12 : Local Files | Load & Decode JSON
 
 import 'package:flutter/material.dart';
 import 'package:master_app/pages/home_page.dart';

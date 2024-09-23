@@ -128,5 +128,15 @@ class _LogInPageState extends State<LogInPage> {
   }
 }
 
-
+// At first simply changeButton is false, basically this is for displaying an anaimated button.
+// Button display and the validator inside TextFormField return null, which shows that correct data added.
+// When user tap button, OnTap() function of InkWell call and we goes to moveToHome function
+// Inside moveToHome function first changeButton = true and the setState Called
+// Now again build method call and the button show animation, in such a way that 1stly button widths contract within 1 sec and shows the tick icon
+// now we again goes back to moveToHome function and then await future delay line works, which simplay tells that do not go to next line instantly
+// What is in the next Line ?
+// Next Line contains, Navigator.pushNmaed as a result we goes to HomePage
+// But wait we we use await with Navigator.pushNamed ? 
+// Because when user press back button, button doesn't instantly expnaded or don't goes to next line iinstantly 
+// next line will agian make changebutton = false and the setState is called
 // ✅ ❌ 😵 🤗 😥 🤔 (⭕R) 💡 💬 💭 🚫

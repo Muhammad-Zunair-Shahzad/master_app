@@ -14,6 +14,11 @@ class MyThemes {
           elevation: 0.0,
           iconTheme: const IconThemeData(color: Colors.black),
           titleTextStyle: Theme.of(context).textTheme.titleLarge,
+          // This line of code retrieves the titleLarge text style from the current app's theme 
+          // and applies it to the titleTextStyle....
+          // Theme.of(context): This accesses the current Theme data for your app....
+          // .textTheme: This provides access to predefined text styles in the app's theme, like headline, body text, and titles.
+          // .titleLarge: properties such as font size, weight, and color that match the app's overall design.
         ),
       );
 

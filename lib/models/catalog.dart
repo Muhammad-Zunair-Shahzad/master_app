@@ -1,11 +1,5 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
-// When you declare CatalogModel.items as nullable (like List<Item>?), the compiler assumes that items could be null...
-// Therefore, when you try to access its properties like (itemCount: CatalogModel.items!.length), the compiler gives an error because it cannot guarantee 
-// that items has been initialized with a non-null value...
-// When you use CatalogModel.items!.length, you're forcing the compiler to treat items as non-null.
-// If items is null at runtime and you use the ! operator, it will result in a runtime error (Null check operator used on a null value).
 class CatalogModel {
   static List<Item>? items;
 }

@@ -5,7 +5,43 @@ class Item {
       required this.desc,
       required this.price,
       required this.color,
-      required this.image});
+      required this.image}
+      );
+
+  // "Decode" OR simply access values as map["id"]
+  factory Item.fromMap(Map<String, dynamic> map) {
+    return Item(
+      id: map["id"],
+      name: map["name"],
+      desc: map["desc"],
+      price: map["price"],
+      color: map["color"],
+      image: map["image"],
+    );
+  }
+
+  //encode 1
+  toMap() => {
+        "id": id,
+        "name": name,
+        "desc": desc,
+        "price": price,
+        "color": color,
+        "image": image,
+      };
+
+// encode 1
+  //  Map<String,dynamic> get toMap{
+  //   return {
+  //       "id": id,
+  //       "name": name,
+  //       "desc": desc,
+  //       "price": price,
+  //       "color": color,
+  //       "image": image,
+  //     };
+  //  }
+
   final int id;
   final String name;
   final String desc;
@@ -15,7 +51,8 @@ class Item {
 }
 
 class CatalogModel {
-  static final List<Item> items = [ // items stores the instances list, of the Item class
+  static List<Item> items = [
+    // items stores the instances list, of the Item class
     Item(
         id: 1,
         name: "iPhone 12 Pro",

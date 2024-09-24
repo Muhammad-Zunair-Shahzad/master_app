@@ -15,9 +15,9 @@ class _LogInPageState extends State<LogInPage> {
     if (_formkey.currentState!.validate()) { 
       changeButton = true;
       setState(() {});
-      await Future.delayed(const Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 1)); //  Introduce a delay of 1 second in your Dart or Flutter code before continuing to the next line.
       if (context.mounted) { 
-        await Navigator.pushNamed(context, MyRoutes.homeRoute); 
+        await Navigator.pushNamed(context, MyRoutes.homeRoute); // Don't goes to next line instantly until the user oress back button in his mobile 
       }
       changeButton = false;
       setState(() {});

@@ -1,4 +1,4 @@
-// * Day12 : Local Files | Load & Decode JSON
+// * Day14: Beautiful UI and Vx
 
 import 'package:flutter/material.dart';
 import 'package:master_app/pages/home_page.dart';

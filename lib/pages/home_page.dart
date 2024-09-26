@@ -63,14 +63,14 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
 // GRID TILE Footer
-                      footer: Container(
+                      footer: Container( // 2
                         decoration: BoxDecoration(
                           color: Colors.black,
                           border: Border.all()
-                        ),
-                        padding: const EdgeInsets.all(12),
+                        ), 
+                        padding: const EdgeInsets.all(12), // part of container
                         width: 100.0, // Specifying width: 100.0, will be ignored since GridTile forces the container to adapt to its own constraints.
-                        child: Text(
+                        child: Text( // 1
                           item.price.toString(), 
                           style: const TextStyle(
                             color: Colors.white),

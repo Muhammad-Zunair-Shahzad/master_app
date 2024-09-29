@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:master_app/models/catalog.dart';
-import 'package:master_app/widgets/drawer.dart';
-import 'package:master_app/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
-// import 'package:master_app/widgets/item_widget.dart';
+import 'package:master_app/models/catalog.dart';
+import 'package:master_app/widgets/themes.dart';
+//import 'package:master_app/widgets/drawer.dart';
+//import 'package:master_app/widgets/item_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -33,13 +33,13 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyThemes.creamColor,
-      body: SafeArea( // whatever we write is between the bodder and header of the screen 
+      body: SafeArea( 
         child: Container(
-          padding: Vx.m32, // This is edge insets.all
+          padding: Vx.m32, // all
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CatalogHeader(), // wither use expand() here or at the end of the ListView.builder().expand
+              const CatalogHeader(), // expand() or 
               if(CatalogModel.items != null && CatalogModel.items!.isNotEmpty)
               const CatalogList()
               else
@@ -57,10 +57,10 @@ class CatalogHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column( // This is like Catalog Header so make a class and add this column to that class
+    return Column( 
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              "Catalog App".text.xl5.bold.color(MyThemes.darkBluishColor).make(), // This is same as Text("Catalog App")
+              "Catalog App".text.xl5.bold.color(MyThemes.darkBluishColor).make(),
               "Trending Products".text.xl2.make(),
             ],
     );
@@ -79,7 +79,7 @@ class CatalogList extends StatelessWidget {
         final catalog = CatalogModel.items![index];
         return CatalogItem(catalog : catalog);
       }
-    ).expand();
+    ).expand(); // expand or 
   }
 }
 
@@ -92,26 +92,57 @@ class CatalogItem extends StatelessWidget {
     return VxBox(
       child: Row(
         children: [
-          Image.network(catalog.image,
-          fit: BoxFit.cover,
-          ).p8(),
+          CatalogImage(image: catalog.image),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                catalog.name.text.lg.bold.color(MyThemes.darkBluishColor).make(), // lg , xl -> size
+                catalog.desc.text.textStyle(context.captionStyle).make(),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10), // you can also use sizedbox 
+                  child: OverflowBar(
+                    // spacing: 82, // Not recommend use .pOnly(right: 8.0)
+                    alignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      "\$${catalog.price}".text.bold.xl.make(),
+                      ElevatedButton(
+                        onPressed: (){},
+                        style: ButtonStyle(
+                          backgroundColor: WidgetStatePropertyAll(
+                            MyThemes.darkBluishColor
+                          ),
+                          shape: const WidgetStatePropertyAll(
+                            StadiumBorder(),
+                          )
+                        ),
+                        child:"Buy".text.make(), 
+                      ),
+                    ],
+                  ).pOnly(right: 8.0),
+                )
+              ],
+            ),
+          )
         ],
       )
-    ).red400.square(100).make();
+    ).white.rounded.square(150).make().py16();
   }
 }
 
-/*
+class CatalogImage extends StatelessWidget {
+  const CatalogImage({super.key, required this.image});
+  final String image;
+  @override
+  Widget build(BuildContext context) {
+    return Image.network(
+          image,
+          fit: BoxFit.contain,
+          ).box.rounded.p8.color(MyThemes.creamColor).make().p16().w40(context);
+  }
+}
 
---> When you write these things
-
-              "Catalog App".text.xl5.bold.color(MyThemes.darkBluishColor).make(),
-              "Trending Products".text.make(),
-
-              Trending Products is at the center of the catalog App title, so add crossAxisAlignment start in the column
-
-
- */
 
 
 

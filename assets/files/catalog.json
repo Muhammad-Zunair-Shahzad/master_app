@@ -1,69 +1,60 @@
-{ 
-    "products": [
+{
+  "products": [
       {
-        "id": 1,
-        "name": "iPhone 12 Pro",
-        "desc": "Apple iPhone 12th generation",
-        "price": 999,
-        "color": "#33505a",
-        "image": "https://i.pinimg.com/originals/8b/ab/3c/8bab3ce82f9a713ea1af739a99a9a440.png"
+          "id": 1,
+          "name": "iPhone 12 Pro",
+          "desc": "Apple iPhone 12th generation",
+          "price": 999,
+          "color": "#33505a",
+          "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-12-pro-blue-hero?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1604021661000"
       },
       {
-        "id": 2,
-        "name": "Pixel 5",
-        "desc": "Google Pixel phone 5th generation",
-        "price": 699,
-        "color": "#00ac51",
-        "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRWs1pHPRLGyEkyNZ6msAvcDQIVLr6XaVKZTlLm4F6tvc6R3IN_-bGssC8ISBauJOqVRKSqg-rI860NJ_FNxAi6ADdRxeCy9KevD7z3bP1tspZPbJcPXZa6PwlNpg-Qlg&usqp=CAc"
+          "id": 2,
+          "name": "Pixel 5",
+          "desc": "Google Pixel phone 5th generation",
+          "price": 699,
+          "color": "#00ac51",
+          "image": "https://www.telstra.com.au/content/dam/tcom/lego/2020/plans-devices/mobiles/google-pixel-5/shared-google-pixel-5-black-05-900x1200.png"
       },
       {
-        "id": 3,
-        "name": "M1 MacBook Air",
-        "desc": "Apple MacBook Air with Apple Silicon",
-        "price": 1099,
-        "color": "#e0bfae",
-        "image": "https://th.bing.com/th/id/OIP.GSWC4mIG-yAv0I8S8_WEcQHaGz?w=174&h=180&c=7&r=0&o=5&pid=1.7"
+          "id": 3,
+          "name": "M1 Macbook Air",
+          "desc": "Apple Macbook air with apple silicon",
+          "price": 1099,
+          "color": "#e0bfae",
+          "image": "https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP825/macbookair.png"
       },
       {
-        "id": 4,
-        "name": "PlayStation 5",
-        "desc": "Sony Playstation 5th generation",
-        "price": 500,
-        "color": "#544ee4",
-        "image": "https://th.bing.com/th/id/OIP.X1leMVWOSitmx7ypGQrDHAHaHa?w=171&h=180&c=7&r=0&o=5&pid=1.7"
+          "id": 4,
+          "name": "Airpods Pro",
+          "desc": "Apple Aipods Pro 1st generation",
+          "price": 200,
+          "color": "#e3e4e9",
+          "image": "https://crdms.images.consumerreports.org/c_lfill,w_598/prod/products/cr/models/400116-wireless-portable-headphones-apple-airpods-pro-10009323.png"
       },
       {
-        "id": 5,
-        "name": "Airpods Pro",
-        "desc": "Apple Airpods Pro 1st generation",
-        "price": 1099,
-        "color": "#e3e4e9",
-        "image": "https://i.ebayimg.com/images/g/dEsAAOSwhJlkgzPF/s-l1600.webp"
+          "id": 5,
+          "name": "iPad Pro",
+          "desc": "Apple iPad Pro 2020 edition",
+          "price": 799,
+          "color": "#f73984",
+          "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/ipad-pro-12-select-wifi-silver-202003_FMT_WHH?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1583551131102"
       },
       {
-        "id": 6,
-        "name": "iPad Pro",
-        "desc": "Apple iPad Pro 2020 edition",
-        "price": 799,
-        "color": "#f73984",
-        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/refurb-ipad-pro-11-wifi-spacegray-2020?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1627667236000"
+          "id": 6,
+          "name": "Galaxy S21 Ultra",
+          "desc": "Samsung Galaxy S21 Ultra 2021 edition",
+          "price": 1299,
+          "color": "#1c1c1c",
+          "image": "https://lh3.googleusercontent.com/qRQPjHrhRVIs-xnfNSyiPXOH2vH97ylMacgbTKebqJtRfNH3LlYo8pN-5igsLDWUH62tGl5zNpTsl5xd8SprzGmXoCEmWFOi2-2cQVGS-r3PaRXHt62DmJHq-jrYX0UQvWZ9BA=s800-c"
       },
       {
-        "id": 7,
-        "name": "Galaxy S21",
-        "desc": "Smasung Galaxy S21 Ultra 2021 edition",
-        "price": 1299,
-        "color": "#1c1c1c",
-        "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR8yOSUepjIoI3NZm-2_Y7oPasBnvp3Uivau3FozuX6TjPipzl1jmbL7pBih2k1X0bRa1Z1R41ukD_LLkwKymSL0RBidfq9-CgemKNafyhKLXINgd3jG5GFfcrDsjb9PHuedYR-Jiy9HQ&usqp=CAc"
-      },
-      {
-        "id": 8,
-        "name": "Galaxy S21 Ultra",
-        "desc": "Smasung Galaxy S21 2021 edition",
-        "price": 899,
-        "color": "#7c95eb",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6qxILPG85kEsTnQbReEyT57YJvJplAMOgSg&s"
+          "id": 7,
+          "name": "Galaxy S21",
+          "desc": "Samsung Galaxy S21 2021 edition",
+          "price": 899,
+          "color": "#7c95eb",
+          "image": "https://images.samsung.com/is/image/samsung/p6pim/za/galaxy-s21/gallery/za-clear-cover-galaxy-s21-5g-ef-qg991ttegww-363168624?$720_576_PNG$"
       }
- ]
+  ]
 }
-  

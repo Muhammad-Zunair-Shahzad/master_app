@@ -35,11 +35,11 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: MyThemes.creamColor,
       body: SafeArea( 
         child: Container(
-          padding: Vx.m32, // all
+          padding: Vx.m32,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const CatalogHeader(), // expand() or 
+              const CatalogHeader(), 
               if(CatalogModel.items != null && CatalogModel.items!.isNotEmpty)
               const CatalogList()
               else
@@ -115,7 +115,7 @@ class CatalogItem extends StatelessWidget {
                           ),
                           shape: const WidgetStatePropertyAll(
                             StadiumBorder(),
-                          )
+                          ),
                         ),
                         child:"Buy".text.make(), 
                       ),
@@ -124,7 +124,7 @@ class CatalogItem extends StatelessWidget {
                 )
               ],
             ),
-          )
+          ),
         ],
       )
     ).white.rounded.square(150).make().py16();
@@ -142,9 +142,6 @@ class CatalogImage extends StatelessWidget {
           ).box.rounded.p8.color(MyThemes.creamColor).make().p16().w40(context);
   }
 }
-
-
-
 
 
 

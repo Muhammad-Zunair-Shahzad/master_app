@@ -1,4 +1,4 @@
-// * Day14: Beautiful UI and Vx
+// Chapter 15 (Hero Animation | MaterialPageRoute | Arc)
 
 import 'package:flutter/material.dart';
 import 'package:master_app/pages/home_page.dart';

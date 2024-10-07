@@ -1,6 +1,7 @@
 // Chapter 15 (Hero Animation | MaterialPageRoute | Arc)
 
 import 'package:flutter/material.dart';
+import 'package:master_app/pages/cart_page.dart';
 import 'package:master_app/pages/home_page.dart';
 import 'package:master_app/pages/login_page.dart';
 import 'package:master_app/utils/routes.dart';
@@ -17,14 +18,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
-      theme: MyThemes.lightTheme(context),
-      darkTheme: MyThemes.darkTheme,
-      initialRoute: '/home',
-      routes: {
-        '/': (context) => const LogInPage(),
-        MyRoutes.homeRoute: (context) => const HomePage(), 
-        MyRoutes.loginRoute: (context) => const LogInPage(), 
-      },
+      theme: MyThemes.lightTheme(context), 
+      darkTheme: MyThemes.darkTheme, 
+      initialRoute: '/home', 
+      routes: { 
+        '/': (context) => const LogInPage(), 
+        MyRoutes.homeRoute: (context) => const HomePage(),  
+        MyRoutes.loginRoute: (context) => const LogInPage(),  
+        MyRoutes.cartRoute: (context) => const CartPage()
+      }, 
     );
   }
 }

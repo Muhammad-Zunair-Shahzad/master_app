@@ -27,8 +27,9 @@ class CatalogList extends StatelessWidget {
                   )
                 );
               },
-              child: CatalogItem(catalog: catalog));
-        }).expand();
+              child: CatalogItem(catalog: catalog)
+          );
+        }); // I remove .expand form here
   }
 }
 
@@ -67,7 +68,7 @@ class CatalogItem extends StatelessWidget {
                           StadiumBorder(),
                         ),
                       ),
-                      child: "Buy".text.make(),
+                      child: "Add To Cart".text.make(),
                     ),
                   ],
                 ).pOnly(right: 8.0),

@@ -7,9 +7,9 @@ class LogInPage extends StatefulWidget {
   State<LogInPage> createState() => _LogInPageState();
 }
 class _LogInPageState extends State<LogInPage> { 
-  String name = "";
-  bool changeButton = false;
-  final _formkey = GlobalKey<FormState>(); 
+  String name = ""; 
+  bool changeButton = false;  
+  final _formkey = GlobalKey<FormState>();  
 
   moveToHome(BuildContext context) async { 
     if (_formkey.currentState!.validate()) { 
@@ -30,12 +30,12 @@ class _LogInPageState extends State<LogInPage> {
       child: SingleChildScrollView(
         child: Form(
           key:_formkey, 
-          child: Column(
-            children: [
-              Image.asset(
+          child: Column( 
+            children: [ 
+              Image.asset( 
                 'assets/images/login_image_2.png',
                 fit: BoxFit.cover,
-              ),
+              ), 
               const SizedBox(
                 height: 20,
               ),

@@ -8,21 +8,8 @@ class CatalogModel {
       items!.firstWhere((element) => element.id == id); // NOTE1
 
 // Get an item by pos
-  static Item getByPosition(int pos) => items![pos];
+  static Item getByPosition(int pos) => items![pos]; // NOTE2
 
-  /*
-NOTE1:
-      --> items!:- items is not null at that time.
-      --> firstWhere searches through the list of items and returns the first element that satisfies the condition.
-      --> (element) => element.id == id MEANS THAT "find the element where element.id equals id"
-      --> If such an element is found, firstWhere will return that element.
-
-NOTE2:
-      --> Type of Item : List<Item>?
-      --> the list contains Map 
-      --> Map has indexes [0] --> [7]
-      --> these Maps are actually the products and items details in the home screen 
-   */
 }
 
 class Item {
@@ -115,3 +102,18 @@ class Item {
         image.hashCode;
   }
 }
+
+/*
+
+NOTE1:
+      --> items!:- items is not null at that time.
+      --> firstWhere searches through the list of items and returns the first element that satisfies the condition.
+      --> (element) => element.id == id MEANS THAT "find the element where element.id equals id"
+      --> If such an element is found, firstWhere will return that element.
+
+NOTE2:
+      --> Type of Item : List<Item>?
+      --> the list contains Map 
+      --> Map has indexes [0] --> [7]
+      --> these Maps are actually the products and items details in the home screen 
+*/

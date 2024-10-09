@@ -13,14 +13,15 @@ class CatalogList extends StatelessWidget {
         shrinkWrap: true,
         itemCount: CatalogModel.items!.length,
         itemBuilder: (context, index) {
-          final catalog = CatalogModel.items![index];
+          // VIP NOTE1
+          final catalog = CatalogModel.getByPosition(index);
           return InkWell(
               onTap: () {
-                Navigator.of(context).push( // Navigator.of(<current widget context>).push(................);
-                  MaterialPageRoute( // Class which works like GPS Navigations System, It tells you app where to go?
+                Navigator.of(context).push( // NOTE5
+                  MaterialPageRoute( // NOTE6
                     builder: (context){
                       return HomeDetailsPage( 
-                        catalog: catalog // We shoult pass a map or an object to HomeDetailsPage
+                        catalog: catalog // NOTE7, NOTE8
                       );
                     }
                   )
@@ -99,4 +100,23 @@ NOTE2:
 NOTE3:
         --> catalog.name.text.lg.bold.color(MyThemes.darkBluishColor).make()
         --> I add context.accentColor instead of MyThemes.darkBluishColor
+
+NOTE4:
+        --> final catalog = CatalogModel.items![index]; or 
+            final catalog = CatalogModel.getByPosition(index);
+
+NOTE5:
+        --> Navigator.of(<current widget context>).push(................);
+
+NOTE6: 
+        --> Class which works like GPS Navigations System, It tells you app where to go?
+
+NOTE7: 
+        --> We shoult pass a map or an object to HomeDetailsPage
+
+NOTE8:
+        --> catalog: catalog
+        --> catalog is basically the Map
+        --> so if I want to open the smae image like of ear pods then I can also write as: catalog: CatalogModel.getById(2)
+        --> where 2 is the number of item in the home screen (it's not an index)
  */

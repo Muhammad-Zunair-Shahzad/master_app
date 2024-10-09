@@ -39,7 +39,13 @@ class MyThemes {
           backgroundColor: Colors.black,
           elevation: 0.0,
           iconTheme: const IconThemeData(color: Colors.white),
-          titleTextStyle: Theme.of(context).textTheme.titleLarge,
+          titleTextStyle: Theme.of(context).textTheme.copyWith(
+            titleLarge: const TextStyle(
+              color: Colors.white, fontSize: 20)
+            ).titleLarge, // NOTE8
+          // NOTE6 
+          // NOTE7 
+          
         ),
       );
 
@@ -76,4 +82,20 @@ NOTE5:
       --> colorScheem also provides the brightness
       --> brightness.dark only make the 'Trending Products' white, while the rest of the data insode the VxBox -> row -> column becomes ugly
       --> Inside catalog_list.dart inside CatalogItem class where outside the VxBox I change .white -> .color(context.cardColor)
+
+NOTE6:
+      --> foregroundColor: Colors.white, Not works because of some problem 
+
+NOTE7:
+      --> toolbarTextStyle:const TextStyle(color: Colors.white), Not work here beacause of some problem
+
+NOTE8: 
+      --> The textTheme is a part of the overall theme, containing predefined text styles like headline, 
+          subtitle, bodyText, and in this case, titleLarge.
+      --> The copyWith method allows you to create a copy of the current textTheme with specific changes. 
+          In this case, it's creating a copy of the textTheme while modifying the titleLarge style.
+
+NOTE9:
+      --> .copyWith(titleLarge: const TextStyle(color: Colors.white)).titleLarge
+      --> As textTheme has a property of .titleLarge, so also use titleLarge inside the .copywright to oveeride that title
  */

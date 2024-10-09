@@ -7,7 +7,6 @@ import 'package:master_app/widgets/home_widgets/catalog_header.dart';
 import 'package:master_app/widgets/home_widgets/catalog_list.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:master_app/models/catalog.dart';
-import 'package:master_app/widgets/themes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -34,13 +33,14 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyThemes.creamColor,
+      // NOTE1
+      backgroundColor: context.canvasColor,
       floatingActionButton: FloatingActionButton(
         onPressed: (){
           Navigator.pushNamed(context, MyRoutes.cartRoute);
         },
-        backgroundColor: MyThemes.darkBluishColor,
-        child:const Icon(CupertinoIcons.cart),
+      // NOTE2
+        child:const Icon(CupertinoIcons.cart, color: Colors.white,),
       ),
       body: SafeArea( 
         child: Container(
@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               const CatalogHeader(),
               if(CatalogModel.items != null && CatalogModel.items!.isNotEmpty)
-              const CatalogList().py16().expand() // Adding padding to a list from top and bottom, .py16 meand padding along y-axis 
+              const CatalogList().py16().expand() 
               else
               const Center(child: CircularProgressIndicator()).expand(),
             ],
@@ -60,6 +60,26 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+/*
+NOTE1:-
+      Previously:-
+      backgroundColor: MyThemes.creamColor,
+
+      Scaffold color change according to the vivo theme that either it is dark or light at that time      
+      backgroundColor: context.cardColor, 
+      
+      context.canvasColor --> using velocity x package
+      Either you mention the background color or not, By default Scaffold follows canvas color
+      Default canvas color is white but I explicitely add canvasColor: darkCreamColor in MyThemes file
+
+NOTE2:-
+      False: backgroundColor: context.theme.buttonColor,
+      True: I already add FloatingActionButtonTheme in the themes.dartf file 
+ */
+
+
+
 
 
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:master_app/pages/home_details_page.dart';
 import 'package:master_app/widgets/home_widgets/catalog_image.dart';
-import 'package:master_app/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 import 'package:master_app/models/catalog.dart';
 
@@ -44,14 +43,14 @@ class CatalogItem extends StatelessWidget {
       children: [
         Hero(
           tag: catalog.id,
-          child: CatalogImage(image: catalog.image) // We want to wrap image with Hero because we animate the image 
+          child: CatalogImage(image: catalog.image) 
         ),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              catalog.name.text.lg.bold.color(MyThemes.darkBluishColor).make(),
+              catalog.name.text.lg.bold.color(context.accentColor).make(), // NOTE3
               catalog.desc.text.textStyle(context.captionStyle).make(),
               Padding(
                 padding: const EdgeInsets.only(top: 10),
@@ -63,7 +62,9 @@ class CatalogItem extends StatelessWidget {
                       onPressed: () {},
                       style: ButtonStyle(
                         backgroundColor:
-                            WidgetStatePropertyAll(MyThemes.darkBluishColor),
+                            WidgetStatePropertyAll(
+                              context.theme.floatingActionButtonTheme.backgroundColor, // NOTE2
+                            ),
                         shape: const WidgetStatePropertyAll(
                           StadiumBorder(),
                         ),
@@ -77,6 +78,25 @@ class CatalogItem extends StatelessWidget {
           ),
         ),
       ],
-    )).white.rounded.square(150).make().py16();
+    )).color(context.cardColor).rounded.square(150).make().py16(); // NOTE1
   }
 }
+
+/*
+NOTE1:
+       --> I'm removing WHITE from here :- .white.rounded.square(150).make().py16();
+       --> WHITE is the color inside the VxBox which becomes ugly when the darkTheme enable (Read NOTE5 of themes.dart)
+
+NOTE2:
+       --> Normally in theme.dart inside the darkTheme i write like  canvasColor: , accentColor: , etc
+       --> But in that case
+               floatingActionButtonTheme: FloatingActionButtonThemeData(
+               backgroundColor: indigoColor,
+              ),
+        --> Now see above that there is a property and a widget so when in order to access this you can use context.theme 
+            like :- context.theme.floatingActionButtonTheme.backgroundColor
+
+NOTE3:
+        --> catalog.name.text.lg.bold.color(MyThemes.darkBluishColor).make()
+        --> I add context.accentColor instead of MyThemes.darkBluishColor
+ */

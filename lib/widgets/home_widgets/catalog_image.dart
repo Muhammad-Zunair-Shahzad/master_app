@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:master_app/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CatalogImage extends StatelessWidget {
@@ -10,6 +9,12 @@ class CatalogImage extends StatelessWidget {
     return Image.network(
           image,
           fit: BoxFit.contain,
-          ).box.rounded.p8.color(MyThemes.creamColor).make().p16().w40(context);
+          ).box.rounded.p8.color(context.canvasColor).make().p16().w40(context); // NOTE1
   }
 }
+
+/*
+NOTE1:
+      --> I am removing MYTEHEMS.CREAMCOLOR from :- .box.rounded.p8.color(MyThemes.creamColor).make().p16().w40(context);
+      --> Instead I add the context.canavasColor
+ */

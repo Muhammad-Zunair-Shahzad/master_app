@@ -1,4 +1,4 @@
-// Chapter 15 (Hero Animation | MaterialPageRoute | Arc)
+// Chapter 18 (Themes | Dark Theme | System Themes)
 
 import 'package:flutter/material.dart';
 import 'package:master_app/pages/cart_page.dart';
@@ -17,9 +17,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      themeMode: ThemeMode.light,
-      theme: MyThemes.lightTheme(context), 
-      darkTheme: MyThemes.darkTheme, 
+      themeMode: ThemeMode.system, // NOTE1
+      theme: MyThemes.lightTheme
+      (context), 
+      darkTheme: MyThemes.darkTheme 
+      (context), 
       initialRoute: '/home', 
       routes: { 
         '/': (context) => const LogInPage(), 
@@ -30,3 +32,9 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+/*
+NOTE1
+      --> Instead of writing themeMode: ThemeMode.light or themeMode: ThemeMode.dark
+      --> Allow the system theme by writing themeMode: ThemeMode.system
+ */

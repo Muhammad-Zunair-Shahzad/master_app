@@ -14,7 +14,7 @@ class CatalogList extends StatelessWidget {
         itemCount: CatalogModel.items!.length,
         itemBuilder: (context, index) {
           // VIP NOTE1
-          final catalog = CatalogModel.getByPosition(index);
+          final catalog = CatalogModel.items![index]; // NOTE1.1
           return InkWell(
               onTap: () {
                 Navigator.of(context).push( // NOTE5
@@ -87,6 +87,12 @@ class CatalogItem extends StatelessWidget {
 NOTE1:
        --> I'm removing WHITE from here :- .white.rounded.square(150).make().py16();
        --> WHITE is the color inside the VxBox which becomes ugly when the darkTheme enable (Read NOTE5 of themes.dart)
+
+NOTE1.1:
+       --> I am removing this: final catalog = CatalogModel.getByPosition(index)
+       --> because getByPosition is no more static
+       --> basically static means that we are not creating an instance 
+       --> What is the condition of instance Ans) we use () with instance name 
 
 NOTE2:
        --> Normally in theme.dart inside the darkTheme i write like  canvasColor: , accentColor: , etc

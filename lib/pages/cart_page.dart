@@ -14,7 +14,7 @@ class CartPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const CartList().p32().expand(), // NOTE1 
+          const CartList().p32().expand(), // NOTE1
           const Divider(),
           const CartTotal(),
         ],
@@ -36,7 +36,10 @@ class CartTotal extends StatelessWidget {
           "\$9999".text.color(context.accentColor).xl5.make(),
           30.widthBox,
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: "Buying not supported yet.".text.make()));
+            },
             style: ButtonStyle(
                 backgroundColor: WidgetStatePropertyAll(
                     context.theme.floatingActionButtonTheme.backgroundColor)),
@@ -69,12 +72,6 @@ class _CartListState extends State<CartList> {
             ));
   }
 }
-
-
-
-
-
-
 
 /*
 

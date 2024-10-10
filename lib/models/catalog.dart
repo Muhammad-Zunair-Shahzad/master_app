@@ -1,13 +1,18 @@
 import 'dart:convert';
 
 class CatalogModel {
+  // NOTE0
   static List<Item>? items;
 
-// Get an item by Id
-  static Item getById(int id) => items!.firstWhere((element) => element.id == id); // NOTE1
+  // NOTE1: Get an item by Id
+  Item getById(int id) {
+    return items!.firstWhere((item) => item.id == id);
+  }
 
-// Get an item by pos
-  static Item getByPosition(int pos) => items![pos]; // NOTE2
+  // NOTE2: Get an item by pos
+  Item getByPosition(int pos) {
+    return items![pos]; 
+  } 
 
 }
 
@@ -104,6 +109,13 @@ class Item {
 
 /*
 
+NOTE0:
+      --> List<Item>: This defines a list that holds items of type Item.
+      --> ? (nullable): The question mark (?) means that the items list can be either:
+      --> A list of Item objects (e.g., [Item(id: 1, ...), Item(id: 2, ...)]), or
+      --> It can be null, meaning the list has not been initialized or assigned any value.
+      --> Without the ?, the list is non-nullable and must always have a value (even if it’s just an empty list, like []).
+
 NOTE1:
       --> items!:- items is not null at that time.
       --> firstWhere searches through the list of items and returns the first element that satisfies the condition.
@@ -116,4 +128,6 @@ NOTE2:
       --> the list contains Map 
       --> Map has indexes [0] --> [7]
       --> these Maps are actually the products and items details in the home screen 
+
+
 */

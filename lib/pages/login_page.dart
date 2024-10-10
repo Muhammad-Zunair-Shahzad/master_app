@@ -33,11 +33,15 @@ class _LogInPageState extends State<LogInPage> {
           key:_formkey, 
           child: Column( 
             children: [ 
-              Container(
-                color: context.theme.floatingActionButtonTheme.backgroundColor,
-                child: Image.asset( 
-                  'assets/images/login_image_2_3.png',
-                  fit: BoxFit.cover,
+              VxArc(
+                height: 10,
+                arcType: VxArcType.convey,
+                child: Container(
+                  color: context.theme.floatingActionButtonTheme.backgroundColor,  
+                  child: Image.asset( 
+                    'assets/images/login_image_2_3.png',
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ), 
               const SizedBox(

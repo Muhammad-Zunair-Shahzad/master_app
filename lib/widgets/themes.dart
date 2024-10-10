@@ -9,7 +9,7 @@ class MyThemes {
         cardColor: Colors.white,
         canvasColor: creamColor,
         colorScheme:
-            ColorScheme.fromSwatch(accentColor: darkBluishColor), // NOTE3
+        ColorScheme.fromSwatch(accentColor: darkBluishColor), // NOTE3
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: darkBluishColor,
         ),
@@ -30,7 +30,7 @@ class MyThemes {
         cardColor: Colors.black,
         canvasColor: darkGrayColor,
         colorScheme: ColorScheme.fromSwatch(
-            accentColor: Colors.white, brightness: Brightness.dark), // NOTE4
+        accentColor: Colors.white, brightness: Brightness.dark), // NOTE4
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: indigoColor,
         ),

@@ -4,8 +4,7 @@ class CatalogModel {
   static List<Item>? items;
 
 // Get an item by Id
-  static Item getById(int id) =>
-      items!.firstWhere((element) => element.id == id); // NOTE1
+  static Item getById(int id) => items!.firstWhere((element) => element.id == id); // NOTE1
 
 // Get an item by pos
   static Item getByPosition(int pos) => items![pos]; // NOTE2
@@ -108,6 +107,7 @@ class Item {
 NOTE1:
       --> items!:- items is not null at that time.
       --> firstWhere searches through the list of items and returns the first element that satisfies the condition.
+      --> firstWhere means like: jasy hi element milay us ko first time may hi return kr do zyada dair na lgao
       --> (element) => element.id == id MEANS THAT "find the element where element.id equals id"
       --> If such an element is found, firstWhere will return that element.
 

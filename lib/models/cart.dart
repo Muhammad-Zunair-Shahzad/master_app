@@ -1,45 +1,42 @@
 import 'package:master_app/models/catalog.dart';
 
-class Cart {
+class CartModel {
+  static final cartModel = CartModel.internal();
+  CartModel.internal();
+  factory CartModel() => cartModel;
+
   // NOTE0
   CatalogModel? _catalog;
 
-  // Collectionof ID's - store Ids of each Item
-  final List<int> _itemIds = [];
-
   // Get Catalog
   CatalogModel get catalog {
-    return _catalog!; 
-  } 
+    return _catalog!;
+  }
 
   // Set Catalog
   set catalog(CatalogModel newCatalog) {
     _catalog = newCatalog;
   }
 
+  // Collectionof ID's - store Ids of each Item
+  final List<int> _itemIds = [];
+
   // Get items in the cart
   List<Item> get items {
-    return _itemIds.map((id) => _catalog!.getById(id)).toList();
-  } 
+    return _itemIds.map<Item>((id) => _catalog!.getById(id)).toList();
+  }
 
   // Get total price
   num get totalPrice =>
       items.fold(0, (total, current) => total + current.price);
 
-  // Add item
+  // Add item to the List of int ids
   void add(Item item) {
     _itemIds.add(item.id);
   }
 
-  // Remove item
+  // Remove item to the List of int ids
   void remove(Item item) {
     _itemIds.remove(item.id);
   }
 }
-
-/*
-NOTE0:
-      --> Dart is nulla language HaHa.
-      --> Dart doesn't that _catalog is null so we explicitely tell DART.
-      --> Hey! DART catalog must contain something or null.
- */

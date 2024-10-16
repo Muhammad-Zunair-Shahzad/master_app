@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:master_app/models/cart.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class CartPage extends StatelessWidget {
@@ -23,17 +24,40 @@ class CartPage extends StatelessWidget {
   }
 }
 
+class CartList extends StatefulWidget {
+  const CartList({super.key});
+  @override
+  State<CartList> createState() => _CartListState();
+}
+
+class _CartListState extends State<CartList> {
+  final _cart = CartModel(); // NOTE3 
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+        itemCount: _cart.items.length, // NOTE4: List<Item> items, in the start the list will be null so nothing will display on the screen
+        itemBuilder: (context, index) => ListTile(
+              leading: const Icon(Icons.done),
+              trailing: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.remove_circle_outline)),
+              title: _cart.items[index].name.text.make(), // NOTE5: Instead of "item1".text.make(), we write _cart.items[index].name
+            ));
+  }
+}
+
 class CartTotal extends StatelessWidget {
   const CartTotal({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final cart = CartModel();
     return SizedBox(
       height: 200,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          "\$9999".text.color(context.accentColor).xl5.make(),
+          "\$${cart.totalPrice}".text.color(context.accentColor).xl5.make(),
           30.widthBox,
           ElevatedButton(
             onPressed: () {
@@ -51,27 +75,7 @@ class CartTotal extends StatelessWidget {
   }
 }
 
-class CartList extends StatefulWidget {
-  const CartList({super.key});
 
-  @override
-  State<CartList> createState() => _CartListState();
-}
-
-class _CartListState extends State<CartList> {
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: 5,
-        itemBuilder: (context, index) => ListTile(
-              leading: const Icon(Icons.done),
-              trailing: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.remove_circle_outline)),
-              title: "item 1".text.make(),
-            ));
-  }
-}
 
 /*
 
@@ -82,5 +86,10 @@ NOTE1
 
 NOTE2:
       --> giving a width of 32 inside the elevated button
+
+NOTE3:
+      --> Creating an obj of CartModel, so _cart behavees like object of CartModel
+
+NOTE4:
 
  */

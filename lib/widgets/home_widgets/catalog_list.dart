@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:master_app/models/cart.dart';
 import 'package:master_app/pages/home_details_page.dart';
 import 'package:master_app/widgets/home_widgets/catalog_image.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -17,18 +18,14 @@ class CatalogList extends StatelessWidget {
           final catalog = CatalogModel.items![index]; // NOTE1.1
           return InkWell(
               onTap: () {
-                Navigator.of(context).push( // NOTE5
-                  MaterialPageRoute( // NOTE6
-                    builder: (context){
-                      return HomeDetailsPage( 
-                        catalog: catalog // NOTE7, NOTE8
+                Navigator.of(context).push(// NOTE5
+                    MaterialPageRoute(// NOTE6
+                        builder: (context) {
+                  return HomeDetailsPage(catalog: catalog // NOTE7, NOTE8
                       );
-                    }
-                  )
-                );
+                }));
               },
-              child: CatalogItem(catalog: catalog)
-          );
+              child: CatalogItem(catalog: catalog));
         }); // I remove .expand form here
   }
 }
@@ -42,16 +39,15 @@ class CatalogItem extends StatelessWidget {
     return VxBox(
         child: Row(
       children: [
-        Hero(
-          tag: catalog.id,
-          child: CatalogImage(image: catalog.image) 
-        ),
+        Hero(tag: catalog.id, child: CatalogImage(image: catalog.image)),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              catalog.name.text.lg.bold.color(context.accentColor).make(), // NOTE3
+              catalog.name.text.lg.bold
+                  .color(context.accentColor)
+                  .make(), // NOTE3
               catalog.desc.text.textStyle(context.captionStyle).make(),
               Padding(
                 padding: const EdgeInsets.only(top: 10),
@@ -59,22 +55,10 @@ class CatalogItem extends StatelessWidget {
                   alignment: MainAxisAlignment.spaceBetween,
                   children: [
                     "\$${catalog.price}".text.bold.xl.make(),
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                        backgroundColor:
-                            WidgetStatePropertyAll(
-                              context.theme.floatingActionButtonTheme.backgroundColor, // NOTE2
-                            ),
-                        shape: const WidgetStatePropertyAll(
-                          StadiumBorder(),
-                        ),
-                      ),
-                      child: "Add To Cart".text.make(),
-                    ),
+                    _AddToCart(catalog: catalog),
                   ],
                 ).pOnly(right: 8.0),
-              )
+              ),
             ],
           ),
         ),
@@ -82,6 +66,46 @@ class CatalogItem extends StatelessWidget {
     )).color(context.cardColor).rounded.square(150).make().py16(); // NOTE1
   }
 }
+
+class _AddToCart extends StatefulWidget {
+  const _AddToCart({super.key, required this.catalog});
+  final Item catalog;
+  @override
+  State<_AddToCart> createState() => __AddToCartState();
+}
+
+class __AddToCartState extends State<_AddToCart> {
+  bool isAdded = false;
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: () {
+        isAdded = isAdded.toggle(); // NOTE9
+        // Add selected items to cart
+        final catalog = CatalogModel();
+        final cart = CartModel();
+        cart.catalog = catalog; // cart file may list jo bnai hai us kay liyay hum nay catalog function use kia hai is liyay zroori hai 
+        cart.add(widget.catalog);
+        setState(() {
+          // NOTE10
+        });
+      },
+      style: ButtonStyle(
+        backgroundColor: WidgetStatePropertyAll(
+          context.theme.floatingActionButtonTheme.backgroundColor, // NOTE2
+        ),
+        shape: const WidgetStatePropertyAll(
+          StadiumBorder(),
+        ),
+      ),
+      child: isAdded ? const Icon(Icons.done) : "Add To Cart".text.make(),
+    );
+  }
+}
+
+
+
+
 
 /*
 NOTE1:
@@ -125,4 +149,10 @@ NOTE8:
         --> catalog is basically the Map
         --> so if I want to open the smae image like of ear pods then I can also write as: catalog: CatalogModel.getById(2)
         --> where 2 is the number of item in the home screen (it's not an index)
+
+NOTE9
+        --> false = true (after toogle) OR true = false (after toogle)
+
+NOTE10
+        --> Must set the state for toggle purpose
  */

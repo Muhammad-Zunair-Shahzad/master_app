@@ -1,19 +1,24 @@
 import 'dart:convert';
 
 class CatalogModel {
+
+  // Instead of creating a new CatalogModel object we will use an existing object --> this is singleton object (same concept gies for CartModel class of cart.dart)
+  static final catModel = CatalogModel.internal();
+  CatalogModel.internal();
+  factory CatalogModel() => catModel;
+
   // NOTE0
   static List<Item>? items;
 
   // NOTE1: Get an item by Id
   Item getById(int id) {
-    return items!.firstWhere((item) => item.id == id);
+    return items!.firstWhere((item) => item.id == id);  
   }
 
   // NOTE2: Get an item by pos
   Item getByPosition(int pos) {
-    return items![pos]; 
-  } 
-
+    return items![pos];
+  }
 }
 
 class Item {
